@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  tsla:
+    build: .
+    container_name: tsla_forecast
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./outputs:/app/outputs       # persist your plot outputs
+    restart: unless-stopped

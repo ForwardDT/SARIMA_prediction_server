@@ -1,0 +1,10 @@
+{
+  "ticker": "TSLA",
+  "start_date": "2020-01-01",
+  "end_date": "today",
+  "seasonal_period": 8,
+  "forecast_horizon": 30,
+  "n_simulations": 1000,
+  "threshold_high": 320,
+  "threshold_low": 220
+}

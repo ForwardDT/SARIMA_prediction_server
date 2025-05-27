@@ -1,0 +1,9 @@
+yfinance
+curl-cffi
+pandas
+numpy==1.26.4
+matplotlib
+statsmodels
+pmdarima
+fastapi
+uvicorn[standard]

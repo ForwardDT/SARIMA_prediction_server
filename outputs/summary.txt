@@ -1,0 +1,7 @@
+prop_above_current: 0.837
+prop_below_current: 0.163
+ratio_up_down: 5.134969322003085
+mean: 480.9798847066608
+median: 481.0189534129878
+lower_q: 400.7249495221973
+upper_q: 559.5095639732747

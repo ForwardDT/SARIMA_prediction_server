@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TSLA Forecast Dashboard</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    img { max-width: 100%; height: auto; display: block; margin-bottom: 1rem; }
+    /* Hide the residuals section by default */
+    #resid_section { display: none; }
+  </style>
+  <script>
+    async function runPrediction() {
+      document.getElementById("status").innerText = "Running prediction…";
+      const res = await fetch("/predict");
+      const data = await res.json();
+      document.getElementById("status").innerText = "Done.";
+
+      // summary
+      const sumDiv = document.getElementById("summary");
+      sumDiv.innerHTML = "";
+      for (let [k,v] of Object.entries(data.summary)) {
+        let p = document.createElement("p");
+        p.textContent = `${k}: ${v}`;
+        sumDiv.appendChild(p);
+      }
+
+      // images
+      document.getElementById("fcst_img").src = data.images.forecast;
+      document.getElementById("sim_img").src = data.images.simulations;
+      document.getElementById("resid_img").src = data.images.residuals;
+    }
+
+    function toggleResiduals() {
+      const section = document.getElementById('resid_section');
+      section.style.display = section.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</head>
+<body>
+  <h1>TSLA Prediction</h1>
+  <button onclick="runPrediction()">Run Prediction</button>
+  <p id="status"></p>
+
+  <h2>Forecast</h2>
+  <img id="fcst_img" src="" alt="Forecast">
+
+  <h2>Simulated Paths</h2>
+  <img id="sim_img" src="" alt="Simulations">
+
+  <h2>Summary Statistics</h2>
+  <div id="summary"></div>
+
+  <!-- Hidden residual diagnostics, toggleable -->
+  <div>
+    <button onclick="toggleResiduals()">Show/Hide Residual Diagnostics</button>
+    <div id="resid_section">
+      <h2>Residual Diagnostics</h2>
+      <img id="resid_img" src="" alt="Residuals">
+    </div>
+  </div>
+</body>
+</html>
