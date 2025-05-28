@@ -1,4 +1,4 @@
-# TSLA Forecast Dashboard
+# Stock Forecast Dashboard
 
 A containerized FastAPI application for fetching Tesla (TSLA) stock data, fitting a seasonal ARIMA model, forecasting future prices, simulating future paths, and displaying results on a simple web interface.
 
