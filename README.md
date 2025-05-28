@@ -119,7 +119,7 @@ All generated plots and summary files are saved to the `outputs/` directory by d
 
 ![Forecast Example](outputs/TSLA_2020-01-01_2025-05-28_forecast.png)
 
-![1000 Simulations Example](outputs/TSLA_2020-01-01_2025-05-28_forecast.png)
+![1000 Simulations Example](outputs/TSLA_2020-01-01_2025-05-28_simulations.png)
 
 ---
 ## Summary Statistics
